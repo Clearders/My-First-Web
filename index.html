@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Blog — Thoughts, Stories & Ideas</title>
+  <meta name="description" content="A personal blog covering technology, travel, life and more." />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- ===== Header ===== -->
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="logo">✍️ <span>My</span>Blog</div>
+      <nav class="site-nav" aria-label="Main navigation">
+        <a href="index.html" class="active">Home</a>
+        <a href="#categories">Categories</a>
+        <a href="#about">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===== Hero ===== -->
+  <section class="hero">
+    <h1>Welcome to My Blog</h1>
+    <p>Thoughts, stories and ideas on technology, travel, and everyday life.</p>
+    <form class="search-bar" role="search" onsubmit="handleSearch(event)">
+      <input
+        type="search"
+        id="search-input"
+        placeholder="Search posts…"
+        aria-label="Search posts"
+        oninput="filterPosts(this.value)"
+      />
+      <button type="submit" aria-label="Search">🔍</button>
+    </form>
+  </section>
+
+  <!-- ===== Main content ===== -->
+  <div class="main-wrapper">
+
+    <!-- Posts column -->
+    <main>
+
+      <!-- Featured post -->
+      <h2 class="section-heading">✨ Featured</h2>
+      <article class="featured-post" data-title="Getting Started with Web Development">
+        <div class="featured-img">🌐</div>
+        <div class="featured-body">
+          <p class="featured-label">Featured · Technology</p>
+          <h2><a href="blog-post.html?id=1">Getting Started with Web Development</a></h2>
+          <p>
+            A comprehensive guide for beginners who want to dive into the world of web
+            development — from HTML basics all the way to building your first full-stack app.
+          </p>
+          <a href="blog-post.html?id=1" class="btn btn-primary">Read Article →</a>
+        </div>
+      </article>
+
+      <!-- Post grid -->
+      <h2 class="section-heading" id="categories">📝 Latest Posts</h2>
+
+      <div class="no-results" id="no-results" role="alert">
+        <p style="font-size:2.5rem">🔍</p>
+        <p style="font-size:1.1rem;margin-top:12px">No posts found. Try a different search term.</p>
+      </div>
+
+      <div class="post-grid" id="post-grid">
+
+        <!-- Card 1 -->
+        <article class="post-card" data-title="10 CSS Tricks Every Developer Should Know" data-tags="technology css">
+          <div class="card-img" style="background:linear-gradient(135deg,#f093fb,#f5576c);">💅</div>
+          <div class="card-body">
+            <div class="card-tags">
+              <span class="tag">Technology</span>
+              <span class="tag">CSS</span>
+            </div>
+            <h3><a href="blog-post.html?id=2">10 CSS Tricks Every Developer Should Know</a></h3>
+            <p class="card-excerpt">
+              Level up your CSS game with these powerful techniques — from custom properties
+              to container queries and beyond.
+            </p>
+            <div class="card-meta">
+              <div class="avatar">M</div>
+              <span>May 12, 2025</span>
+              <span class="meta-dot">·</span>
+              <span class="read-time">5 min read</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 2 -->
+        <article class="post-card" data-title="My Journey Through Southeast Asia" data-tags="travel life">
+          <div class="card-img" style="background:linear-gradient(135deg,#4facfe,#00f2fe);">✈️</div>
+          <div class="card-body">
+            <div class="card-tags">
+              <span class="tag">Travel</span>
+              <span class="tag">Life</span>
+            </div>
+            <h3><a href="blog-post.html?id=3">My Journey Through Southeast Asia</a></h3>
+            <p class="card-excerpt">
+              Two months, seven countries, and countless memories. Here's everything I
+              learned from backpacking through Southeast Asia on a budget.
+            </p>
+            <div class="card-meta">
+              <div class="avatar">M</div>
+              <span>Apr 28, 2025</span>
+              <span class="meta-dot">·</span>
+              <span class="read-time">8 min read</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 3 -->
+        <article class="post-card" data-title="Understanding JavaScript Promises" data-tags="technology javascript">
+          <div class="card-img" style="background:linear-gradient(135deg,#43e97b,#38f9d7);">⚡</div>
+          <div class="card-body">
+            <div class="card-tags">
+              <span class="tag">Technology</span>
+              <span class="tag">JavaScript</span>
+            </div>
+            <h3><a href="blog-post.html?id=4">Understanding JavaScript Promises</a></h3>
+            <p class="card-excerpt">
+              Asynchronous JavaScript can be tricky. This deep-dive explains Promises,
+              async/await, and error handling with clear examples.
+            </p>
+            <div class="card-meta">
+              <div class="avatar">M</div>
+              <span>Apr 10, 2025</span>
+              <span class="meta-dot">·</span>
+              <span class="read-time">7 min read</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 4 -->
+        <article class="post-card" data-title="The Art of Mindful Living" data-tags="life wellness">
+          <div class="card-img" style="background:linear-gradient(135deg,#fa709a,#fee140);">🧘</div>
+          <div class="card-body">
+            <div class="card-tags">
+              <span class="tag">Life</span>
+              <span class="tag">Wellness</span>
+            </div>
+            <h3><a href="blog-post.html?id=5">The Art of Mindful Living</a></h3>
+            <p class="card-excerpt">
+              Simple, practical habits that helped me slow down, reduce stress, and be more
+              present — no meditation retreat required.
+            </p>
+            <div class="card-meta">
+              <div class="avatar">M</div>
+              <span>Mar 22, 2025</span>
+              <span class="meta-dot">·</span>
+              <span class="read-time">6 min read</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 5 -->
+        <article class="post-card" data-title="Building a REST API with Node.js" data-tags="technology nodejs">
+          <div class="card-img" style="background:linear-gradient(135deg,#a18cd1,#fbc2eb);">🛠️</div>
+          <div class="card-body">
+            <div class="card-tags">
+              <span class="tag">Technology</span>
+              <span class="tag">Node.js</span>
+            </div>
+            <h3><a href="blog-post.html?id=6">Building a REST API with Node.js</a></h3>
+            <p class="card-excerpt">
+              Step-by-step tutorial on creating a production-ready REST API with Express,
+              MongoDB, and proper error handling.
+            </p>
+            <div class="card-meta">
+              <div class="avatar">M</div>
+              <span>Mar 5, 2025</span>
+              <span class="meta-dot">·</span>
+              <span class="read-time">10 min read</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 6 -->
+        <article class="post-card" data-title="Hidden Gems: Cafés in Tokyo" data-tags="travel food">
+          <div class="card-img" style="background:linear-gradient(135deg,#ffecd2,#fcb69f);">☕</div>
+          <div class="card-body">
+            <div class="card-tags">
+              <span class="tag">Travel</span>
+              <span class="tag">Food</span>
+            </div>
+            <h3><a href="blog-post.html?id=7">Hidden Gems: Cafés in Tokyo</a></h3>
+            <p class="card-excerpt">
+              Tokyo's café culture is extraordinary. From cat cafés to centuries-old tea
+              houses, here are my favourite spots to sip and unwind.
+            </p>
+            <div class="card-meta">
+              <div class="avatar">M</div>
+              <span>Feb 18, 2025</span>
+              <span class="meta-dot">·</span>
+              <span class="read-time">5 min read</span>
+            </div>
+          </div>
+        </article>
+
+      </div><!-- /post-grid -->
+
+      <!-- Load more -->
+      <div class="load-more-wrap">
+        <button class="btn btn-outline" onclick="loadMore()">Load More Posts</button>
+      </div>
+
+    </main>
+
+    <!-- ===== Sidebar ===== -->
+    <aside class="sidebar">
+
+      <!-- About -->
+      <div class="widget about-widget" id="about">
+        <div class="author-avatar">👤</div>
+        <h3>About Me</h3>
+        <p>Hi! I'm a developer, traveller, and lifelong learner sharing what I discover along the way.</p>
+        <a href="#" class="btn btn-outline" style="font-size:.85rem;padding:8px 18px;">More About Me</a>
+      </div>
+
+      <!-- Categories -->
+      <div class="widget">
+        <h3 class="widget-title">Categories</h3>
+        <ul class="category-list">
+          <li>
+            <a href="#" onclick="filterByTag('technology')">Technology</a>
+            <span class="cat-count">4</span>
+          </li>
+          <li>
+            <a href="#" onclick="filterByTag('travel')">Travel</a>
+            <span class="cat-count">2</span>
+          </li>
+          <li>
+            <a href="#" onclick="filterByTag('life')">Life</a>
+            <span class="cat-count">2</span>
+          </li>
+          <li>
+            <a href="#" onclick="filterByTag('wellness')">Wellness</a>
+            <span class="cat-count">1</span>
+          </li>
+          <li>
+            <a href="#" onclick="filterByTag('food')">Food</a>
+            <span class="cat-count">1</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Popular posts -->
+      <div class="widget">
+        <h3 class="widget-title">Popular Posts</h3>
+        <div class="popular-list">
+          <div class="popular-item">
+            <span class="popular-num">01</span>
+            <div class="popular-info">
+              <h4><a href="blog-post.html?id=1">Getting Started with Web Development</a></h4>
+              <span>2.4k views</span>
+            </div>
+          </div>
+          <div class="popular-item">
+            <span class="popular-num">02</span>
+            <div class="popular-info">
+              <h4><a href="blog-post.html?id=3">My Journey Through Southeast Asia</a></h4>
+              <span>1.8k views</span>
+            </div>
+          </div>
+          <div class="popular-item">
+            <span class="popular-num">03</span>
+            <div class="popular-info">
+              <h4><a href="blog-post.html?id=4">Understanding JavaScript Promises</a></h4>
+              <span>1.5k views</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tags -->
+      <div class="widget">
+        <h3 class="widget-title">Tags</h3>
+        <div class="tags-cloud">
+          <span class="tag" onclick="filterByTag('technology')">Technology</span>
+          <span class="tag" onclick="filterByTag('travel')">Travel</span>
+          <span class="tag" onclick="filterByTag('life')">Life</span>
+          <span class="tag" onclick="filterByTag('css')">CSS</span>
+          <span class="tag" onclick="filterByTag('javascript')">JavaScript</span>
+          <span class="tag" onclick="filterByTag('nodejs')">Node.js</span>
+          <span class="tag" onclick="filterByTag('wellness')">Wellness</span>
+          <span class="tag" onclick="filterByTag('food')">Food</span>
+        </div>
+      </div>
+
+      <!-- Newsletter -->
+      <div class="widget newsletter-widget">
+        <h3 class="widget-title">Newsletter</h3>
+        <p>Get new posts delivered straight to your inbox. No spam, ever.</p>
+        <form class="newsletter-form" onsubmit="handleSubscribe(event)">
+          <input type="email" placeholder="your@email.com" aria-label="Email address" required />
+          <button type="submit" class="btn btn-primary">Subscribe</button>
+        </form>
+      </div>
+
+    </aside>
+
+  </div><!-- /main-wrapper -->
+
+  <!-- ===== Footer ===== -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="logo">✍️ <span style="color:#60a5fa">My</span>Blog</div>
+        <p>A personal corner of the internet where I share stories, tutorials,<br>and lessons learned from building things and exploring the world.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="#categories">Categories</a></li>
+          <li><a href="#about">About</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Topics</h4>
+        <ul>
+          <li><a href="#">Technology</a></li>
+          <li><a href="#">Travel</a></li>
+          <li><a href="#">Life & Wellness</a></li>
+          <li><a href="#">Food</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 MyBlog — Made with ❤️</span>
+      <div class="social-links" aria-label="Social links">
+        <a href="#" aria-label="GitHub">🐙</a>
+        <a href="#" aria-label="Twitter">🐦</a>
+        <a href="#" aria-label="RSS Feed">📡</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    /* ===== Search / filter ===== */
+    function filterPosts(query) {
+      const q = query.trim().toLowerCase();
+      const cards = document.querySelectorAll('#post-grid .post-card');
+      let visible = 0;
+
+      cards.forEach(card => {
+        const title = card.dataset.title.toLowerCase();
+        const tags  = card.dataset.tags.toLowerCase();
+        const match = !q || title.includes(q) || tags.includes(q);
+        card.style.display = match ? '' : 'none';
+        if (match) visible++;
+      });
+
+      document.getElementById('no-results').classList.toggle('visible', visible === 0);
+    }
+
+    function handleSearch(e) {
+      e.preventDefault();
+      filterPosts(document.getElementById('search-input').value);
+    }
+
+    function filterByTag(tag) {
+      document.getElementById('search-input').value = tag;
+      filterPosts(tag);
+      document.querySelector('#post-grid').scrollIntoView({ behavior: 'smooth' });
+      return false;
+    }
+
+    /* ===== Load more (demo) ===== */
+    function loadMore() {
+      const btn = document.querySelector('.load-more-wrap button');
+      btn.textContent = 'No more posts for now!';
+      btn.disabled = true;
+      btn.style.opacity = '0.5';
+    }
+
+    /* ===== Newsletter ===== */
+    function handleSubscribe(e) {
+      e.preventDefault();
+      const input = e.target.querySelector('input');
+      const btn   = e.target.querySelector('button');
+      btn.textContent = '✅ Subscribed!';
+      btn.disabled = true;
+      input.disabled = true;
+    }
+  </script>
+
+</body>
+</html>
