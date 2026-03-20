@@ -6,6 +6,7 @@
   <title>Blog Post — MyBlog</title>
   <meta name="description" content="Read the full blog post." />
   <link rel="stylesheet" href="styles.css" />
+  <script src="marked.min.js"></script>
 </head>
 <body>
 
@@ -62,7 +63,8 @@
   </footer>
 
   <script>
-    /* ===== Post data ===== */
+    /* ===== Post metadata ===== */
+    /* Content for each post lives in posts/<id>.md — edit those files to update post content. */
     const posts = {
       1: {
         id: 1,
@@ -72,57 +74,6 @@
         tags: ["Technology", "Tutorial"],
         emoji: "🌐",
         gradient: "linear-gradient(135deg,#667eea,#764ba2)",
-        content: `
-          <p>
-            Web development can feel overwhelming at first — there are dozens of languages, frameworks, and tools
-            to learn. But the good news is that you only need three things to get started: <strong>HTML</strong>,
-            <strong>CSS</strong>, and <strong>JavaScript</strong>.
-          </p>
-
-          <h2>1. HTML — The Structure</h2>
-          <p>
-            HTML (HyperText Markup Language) is the skeleton of every web page. It describes the content and
-            structure using <em>tags</em>:
-          </p>
-          <pre><code>&lt;h1&gt;Hello, World!&lt;/h1&gt;
-&lt;p&gt;This is my first web page.&lt;/p&gt;
-&lt;a href="https://example.com"&gt;Visit Example&lt;/a&gt;</code></pre>
-
-          <h2>2. CSS — The Style</h2>
-          <p>
-            CSS (Cascading Style Sheets) makes your page look good. You can control colours, fonts, layout,
-            and animations:
-          </p>
-          <pre><code>body {
-  font-family: sans-serif;
-  background: #f8fafc;
-  color: #1e293b;
-}
-
-h1 { color: #2563eb; }</code></pre>
-
-          <h2>3. JavaScript — The Behaviour</h2>
-          <p>
-            JavaScript brings interactivity. Buttons that respond to clicks, forms that validate input,
-            pages that update without reloading — all powered by JS.
-          </p>
-          <pre><code>document.querySelector('button').addEventListener('click', () => {
-  alert('Hello from JavaScript!');
-});</code></pre>
-
-          <h2>What's Next?</h2>
-          <p>
-            Once you are comfortable with the basics, explore frameworks like <strong>React</strong> or
-            <strong>Vue</strong>, and backend technologies like <strong>Node.js</strong>. Most importantly,
-            <em>build things</em> — even small projects teach you more than any tutorial.
-          </p>
-
-          <blockquote>
-            "The best way to learn programming is to write programs." — Dennis Ritchie
-          </blockquote>
-
-          <p>Happy coding! 🚀</p>
-        `,
         prev: null,
         next: { id: 2, title: "10 CSS Tricks Every Developer Should Know" }
       },
@@ -134,49 +85,6 @@ h1 { color: #2563eb; }</code></pre>
         tags: ["Technology", "CSS"],
         emoji: "💅",
         gradient: "linear-gradient(135deg,#f093fb,#f5576c)",
-        content: `
-          <p>
-            CSS has evolved dramatically over the past few years. Here are ten tricks that will save you time
-            and make your stylesheets cleaner and more powerful.
-          </p>
-
-          <h2>1. CSS Custom Properties</h2>
-          <p>Store values in variables and reuse them everywhere:</p>
-          <pre><code>:root {
-  --primary: #2563eb;
-  --radius: 12px;
-}
-
-.btn { background: var(--primary); border-radius: var(--radius); }</code></pre>
-
-          <h2>2. Logical Properties</h2>
-          <p>
-            Use <code>margin-inline</code> and <code>padding-block</code> instead of direction-specific shorthands
-            for better internationalization support.
-          </p>
-
-          <h2>3. Container Queries</h2>
-          <p>Style elements based on their <em>container's</em> size, not the viewport:</p>
-          <pre><code>.card-container { container-type: inline-size; }
-
-@container (min-width: 400px) {
-  .card { display: grid; grid-template-columns: 1fr 2fr; }
-}</code></pre>
-
-          <h2>4. :is() and :where()</h2>
-          <p>Simplify complex selectors:</p>
-          <pre><code>/* Before */
-h1 a, h2 a, h3 a { color: blue; }
-
-/* After */
-:is(h1, h2, h3) a { color: blue; }</code></pre>
-
-          <h2>5. aspect-ratio</h2>
-          <p>Maintain element proportions with a single line:</p>
-          <pre><code>.thumbnail { width: 100%; aspect-ratio: 16 / 9; }</code></pre>
-
-          <p>These are just a taste — CSS is full of gems waiting to be discovered!</p>
-        `,
         prev: { id: 1, title: "Getting Started with Web Development" },
         next: { id: 3, title: "My Journey Through Southeast Asia" }
       },
@@ -188,44 +96,6 @@ h1 a, h2 a, h3 a { color: blue; }
         tags: ["Travel", "Life"],
         emoji: "✈️",
         gradient: "linear-gradient(135deg,#4facfe,#00f2fe)",
-        content: `
-          <p>
-            Two months. Seven countries. Countless bus rides, night trains, and ferry crossings.
-            Backpacking through Southeast Asia was the most transformative experience of my life — and
-            it cost less than I spend in a typical month at home.
-          </p>
-
-          <h2>The Route</h2>
-          <p>
-            I flew into Bangkok, then slowly made my way through Thailand, Laos, Vietnam, Cambodia,
-            Malaysia, Indonesia, and Singapore. No rigid itinerary — just a rough direction and an
-            open mind.
-          </p>
-
-          <h2>The Highlights</h2>
-          <ul>
-            <li>Watching the sunrise over Angkor Wat in Cambodia</li>
-            <li>Motorcycling through the misty hills of Pai, Thailand</li>
-            <li>Eating bánh mì on a street corner in Hội An, Vietnam — for 50 cents</li>
-            <li>Snorkelling the crystal waters of the Gili Islands, Indonesia</li>
-          </ul>
-
-          <h2>What I Learned</h2>
-          <p>
-            Slow down. You'll always wish you'd spent more time somewhere and less time rushing
-            to the next destination. Talk to locals. Learn three words of the local language — it
-            changes everything.
-          </p>
-
-          <blockquote>
-            "Travel is the only thing you buy that makes you richer."
-          </blockquote>
-
-          <p>
-            If you're on the fence about doing a trip like this — just go. Start planning today.
-            Your future self will thank you. 🌏
-          </p>
-        `,
         prev: { id: 2, title: "10 CSS Tricks Every Developer Should Know" },
         next: { id: 4, title: "Understanding JavaScript Promises" }
       },
@@ -237,52 +107,6 @@ h1 a, h2 a, h3 a { color: blue; }
         tags: ["Technology", "JavaScript"],
         emoji: "⚡",
         gradient: "linear-gradient(135deg,#43e97b,#38f9d7)",
-        content: `
-          <p>
-            Asynchronous JavaScript used to mean a maze of nested callbacks. Promises — and later
-            <code>async/await</code> — cleaned all that up. Let's break it down.
-          </p>
-
-          <h2>What Is a Promise?</h2>
-          <p>
-            A <strong>Promise</strong> is an object representing the eventual completion (or failure)
-            of an asynchronous operation. It can be in one of three states:
-          </p>
-          <ul>
-            <li><strong>Pending</strong> — the operation hasn't finished yet</li>
-            <li><strong>Fulfilled</strong> — the operation completed successfully</li>
-            <li><strong>Rejected</strong> — the operation failed</li>
-          </ul>
-
-          <h2>Creating a Promise</h2>
-          <pre><code>const fetchData = new Promise((resolve, reject) => {
-  setTimeout(() => resolve('Data loaded!'), 1000);
-});
-
-fetchData
-  .then(data => console.log(data))   // "Data loaded!"
-  .catch(err => console.error(err));</code></pre>
-
-          <h2>async / await</h2>
-          <p>
-            <code>async/await</code> is syntactic sugar over Promises, making asynchronous code
-            look synchronous and much easier to read:
-          </p>
-          <pre><code>async function getData() {
-  try {
-    const response = await fetch('https://api.example.com/data');
-    const json = await response.json();
-    console.log(json);
-  } catch (error) {
-    console.error('Error:', error);
-  }
-}</code></pre>
-
-          <p>
-            Once you internalize Promises and <code>async/await</code>, working with APIs,
-            timers, and file I/O in JavaScript becomes a breeze.
-          </p>
-        `,
         prev: { id: 3, title: "My Journey Through Southeast Asia" },
         next: { id: 5, title: "The Art of Mindful Living" }
       },
@@ -294,41 +118,6 @@ fetchData
         tags: ["Life", "Wellness"],
         emoji: "🧘",
         gradient: "linear-gradient(135deg,#fa709a,#fee140)",
-        content: `
-          <p>
-            In a world of constant notifications, it's easy to feel perpetually distracted. Mindfulness
-            doesn't require a retreat or an hour of daily meditation — small, consistent habits can
-            transform how you experience each day.
-          </p>
-
-          <h2>Start with the Morning</h2>
-          <p>
-            Resist the urge to check your phone first thing. Spend the first ten minutes of your day
-            with a warm drink, a journal, or simply sitting in silence. This sets the tone for
-            everything that follows.
-          </p>
-
-          <h2>Single-Tasking</h2>
-          <p>
-            Multitasking is a myth — what we're actually doing is task-switching, and it's exhausting.
-            Pick one thing, give it your full attention, then move on.
-          </p>
-
-          <h2>A Gratitude Practice</h2>
-          <p>
-            Before bed, write down three things you're grateful for. They don't have to be grand —
-            a good cup of coffee counts. Over time this rewires your brain toward positivity.
-          </p>
-
-          <blockquote>
-            "Wherever you are, be all there." — Jim Elliot
-          </blockquote>
-
-          <p>
-            Mindfulness isn't about perfection. It's about noticing when you've drifted and gently
-            returning — to the present, to yourself, to what matters. 🌿
-          </p>
-        `,
         prev: { id: 4, title: "Understanding JavaScript Promises" },
         next: { id: 6, title: "Building a REST API with Node.js" }
       },
@@ -340,53 +129,6 @@ fetchData
         tags: ["Technology", "Node.js"],
         emoji: "🛠️",
         gradient: "linear-gradient(135deg,#a18cd1,#fbc2eb)",
-        content: `
-          <p>
-            A REST API is the backbone of modern web applications. Here's how to build a clean,
-            production-ready one with <strong>Node.js</strong> and <strong>Express</strong>.
-          </p>
-
-          <h2>Project Setup</h2>
-          <pre><code>mkdir my-api && cd my-api
-npm init -y
-npm install express cors dotenv</code></pre>
-
-          <h2>Create the Server</h2>
-          <pre><code>// server.js
-const express = require('express');
-const cors    = require('cors');
-const app     = express();
-
-app.use(cors());
-app.use(express.json());
-
-app.get('/api/posts', (req, res) => {
-  res.json({ posts: [] });
-});
-
-app.listen(3000, () => console.log('Server running on :3000'));</code></pre>
-
-          <h2>RESTful Routes</h2>
-          <ul>
-            <li><code>GET    /api/posts</code>      — list all posts</li>
-            <li><code>GET    /api/posts/:id</code>  — get one post</li>
-            <li><code>POST   /api/posts</code>      — create a post</li>
-            <li><code>PUT    /api/posts/:id</code>  — update a post</li>
-            <li><code>DELETE /api/posts/:id</code>  — delete a post</li>
-          </ul>
-
-          <h2>Error Handling</h2>
-          <p>Always add a global error handler as your last middleware:</p>
-          <pre><code>app.use((err, req, res, next) => {
-  console.error(err.stack);
-  res.status(500).json({ error: 'Something went wrong' });
-});</code></pre>
-
-          <p>
-            From here you can connect a database (MongoDB with Mongoose, or PostgreSQL with Prisma),
-            add authentication with JWT, and deploy to a platform like Render or Railway. 🚀
-          </p>
-        `,
         prev: { id: 5, title: "The Art of Mindful Living" },
         next: { id: 7, title: "Hidden Gems: Cafés in Tokyo" }
       },
@@ -398,48 +140,13 @@ app.listen(3000, () => console.log('Server running on :3000'));</code></pre>
         tags: ["Travel", "Food"],
         emoji: "☕",
         gradient: "linear-gradient(135deg,#ffecd2,#fcb69f)",
-        content: `
-          <p>
-            Tokyo is a city of extremes — towering skyscrapers beside ancient shrines, buzzing
-            izakayas steps from silent gardens. Its café culture is no different: wonderfully
-            diverse and consistently excellent.
-          </p>
-
-          <h2>Koffee Mameya, Omotesando</h2>
-          <p>
-            A reservation-only coffee experience where knowledgeable staff guide you through a
-            carefully curated selection of single-origin beans. Minimalist, meditative, extraordinary.
-          </p>
-
-          <h2>Fuglen Tokyo, Tomigaya</h2>
-          <p>
-            Transplanted from Oslo, Fuglen brings Scandinavian design and specialty coffee to a
-            quiet Tokyo neighbourhood. The vintage furniture and natural light make it perfect for
-            an afternoon with a book.
-          </p>
-
-          <h2>Cat Cafés</h2>
-          <p>
-            No trip to Tokyo is complete without a cat café. Neko no Niwa in Jimbocho is one of
-            the best: relaxed atmosphere, resident cats of all breeds, and decent coffee to boot.
-          </p>
-
-          <blockquote>
-            "Coffee is a language in itself." — Jackie Chan
-          </blockquote>
-
-          <p>
-            Whatever your coffee preference — third-wave pour-over or a classic kissaten blend —
-            Tokyo has a café made for you. ☕
-          </p>
-        `,
         prev: { id: 6, title: "Building a REST API with Node.js" },
         next: null
       }
     };
 
     /* ===== Render post ===== */
-    (function renderPost() {
+    (async function renderPost() {
       const params = new URLSearchParams(window.location.search);
       const id     = parseInt(params.get('id'), 10);
       const post   = posts[id];
@@ -456,9 +163,21 @@ app.listen(3000, () => console.log('Server running on :3000'));</code></pre>
         return;
       }
 
+      /* Fetch Markdown content from posts/<id>.md */
+      let markdownContent = '';
+      try {
+        const response = await fetch(`posts/${id}.md`);
+        if (!response.ok) throw new Error('Not found');
+        markdownContent = await response.text();
+      } catch {
+        markdownContent = '*Could not load post content.*';
+      }
+
+      const renderedContent = marked.parse(markdownContent);
+
       document.title = post.title + ' — MyBlog';
       if (document.querySelector('meta[name="description"]')) {
-        document.querySelector('meta[name="description"]').content = post.content.replace(/<[^>]+>/g, '').slice(0, 155);
+        document.querySelector('meta[name="description"]').content = markdownContent.replace(/[#*`>_\[\]]/g, '').slice(0, 155);
       }
 
       const prevHtml = post.prev
@@ -492,7 +211,7 @@ app.listen(3000, () => console.log('Server running on :3000'));</code></pre>
         <div class="post-hero-img" style="background:${post.gradient}">${post.emoji}</div>
 
         <div class="post-content">
-          ${post.content}
+          ${renderedContent}
         </div>
 
         <div class="post-nav">
